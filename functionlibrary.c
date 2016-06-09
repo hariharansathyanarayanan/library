@@ -46,3 +46,29 @@ void recursive_sort(int A[],int j,int r) {
 		recursive_sort(A,j-1,0);
 	}
 }
+
+//binary search
+int binarysearch(int A[],int p,int q,int v) {
+	int mid;
+	if(p == q) 
+		return -1;
+
+	else if(A[p] == v) 
+		return p;
+
+	else if(A[q] == v)
+		return q;
+
+	else { 
+		mid = (p + q) / 2;
+		
+		if(A[mid] == v) 
+			return mid;
+		else if(A[mid] > v) 
+			q = mid - 1;
+		else 
+			p = mid + 1;
+	    
+	    binarysearch(A,p,q,v);
+	}
+}
